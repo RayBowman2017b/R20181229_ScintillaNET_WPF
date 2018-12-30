@@ -4,7 +4,7 @@
         xmlns:ad="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:my="clr-namespace:SCide.WPF"
         xmlns:sc="http://scintillanet.codeplex.com"
-        Title="MainWindow" Width="860" Height="648"
+        Title="MainWindow" Width="760" Height="768"
         Name="Main_Window_01"
         Loaded="Window_Loaded">
 
@@ -111,8 +111,8 @@
             <!--
                 Scintilla text editor panel neither contracts nor expands
                 When Height is set to "Auto".
-            <RowDefinition Height="Auto" />
               -->
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="176" />
         </Grid.RowDefinitions>
@@ -138,13 +138,108 @@
                 </DockPanel>-->
             </StackPanel>
 
+            <DockPanel
+                    Grid.Row="1"  Grid.Column="0"
+                    Height="108"
+                    LastChildFill="True"
+                    Width="{Binding ElementName=ScrollVwr_for_main_content, Path=ViewportWidth}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Name="Dockpanel_for_file_buttons">
+
+                <!--
+
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+
+                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                                    AncestorType={x:Type DockPanel}}, Path=ActualWidth}"
+                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                                    AncestorType={x:Type ScrollViewer}}, Path=ActualWidth}"
+                    Height="Auto"
+                    Width="{Binding ElementName=ScrollVwr_for_main_content, Path=ViewportWidth}"
+                    Margin="Left, Top, Right, Bottom"
+                    Grid.Row="1"  Grid.Column="0"
+                    vanishes ... HorizontalAlignment="left"
+
+                  -->
+
+                <ScrollViewer Background="#FF270627" Name="ScrollVwr_for_file_buttons"
+
+                    Margin="4,4,4,4"
+                    Width="Auto"
+                    Height="Auto"
+                    BorderThickness="2"
+                    BorderBrush="Black"
+                    HorizontalScrollBarVisibility="Disabled"
+                    VerticalScrollBarVisibility="Auto"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    GotFocus="ScrollVwr_for_main_content_GotFocus">
+
+                <!--
+                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                                    AncestorType={x:Type ScrollViewer}}, Path=ActualWidth}"
+                    Width="Auto"
+                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                                    AncestorType={x:Type ScrollViewer}}, Path=ActualWidth}"
+                  -->
+
+                <WrapPanel Name="wrappanel_file_buttons"
+                    Width="{Binding ElementName=ScrollVwr_for_file_buttons, Path=ViewportWidth}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Height="Auto"
+                    Background="BlueViolet">
+            <Button Background="Aquamarine" Height="Auto" Width="Auto"
+                            Margin="4" Padding="4" FontSize="18"
+                    >Button 000001</Button>
+            <Button Background="Aquamarine" Height="Auto" Width="Auto"
+                            Margin="4" Padding="4" FontSize="18"
+                    >Button 000002</Button>
+            <Button Background="Aquamarine" Height="Auto" Width="Auto"
+                            Margin="4" Padding="4" FontSize="18"
+                    >Button 000003</Button>
+            <Button Background="Aquamarine" Height="Auto" Width="Auto"
+                            Margin="4" Padding="4" FontSize="18"
+                    >Button 000004</Button>
+            <Button Background="Aquamarine" Height="Auto" Width="Auto"
+                            Margin="4" Padding="4" FontSize="18"
+                    >Button 000005</Button>
+            <Button Background="Aquamarine" Height="Auto" Width="Auto"
+                            Margin="4" Padding="4" FontSize="18"
+                    >Button 000006</Button>
+            <Button Background="Aquamarine" Height="Auto" Width="Auto"
+                            Margin="4" Padding="4" FontSize="18"
+            >Button 000007</Button>
+            <Button Background="Aquamarine" Height="Auto" Width="Auto"
+                            Margin="4" Padding="4" FontSize="18"
+            >Button 000008</Button>
+            <Button Background="Aquamarine" Height="Auto" Width="Auto"
+                            Margin="4" Padding="4" FontSize="18"
+            >Button 000009</Button>
+            <Button Background="Aquamarine" Height="Auto" Width="Auto"
+                            Margin="4" Padding="4" FontSize="18"
+            >Button 000010</Button>
+            <Button Background="Aquamarine" Height="Auto" Width="Auto"
+                            Margin="4" Padding="4" FontSize="18"
+            >Button 000011</Button>
+            <Button Background="Aquamarine" Height="Auto" Width="Auto"
+                            Margin="4" Padding="4" FontSize="18"
+            >Button 000012</Button>
+            </WrapPanel>
+
+        </ScrollViewer>
+
+            </DockPanel>
+
 
         <my:OpenFileDialog x:Name="openFileDialog" Filter="All Files (*.*)|*.*" Multiselect="True" />
 
         <!--  [ Name="Dockpanel_for_editor_area" top1;^B]  -->
 
         <DockPanel HorizontalAlignment="Left" VerticalAlignment="Stretch"
-                Grid.Row="1"  Grid.Column="0"
+                Grid.Row="2"  Grid.Column="0"
                 Width="{Binding ElementName=ScrollVwr_for_main_content, Path=ViewportWidth}"
                     Name="Dockpanel_for_editor_area">
             <Menu HorizontalAlignment="Stretch" VerticalAlignment="Top" DockPanel.Dock="Top">
@@ -294,7 +389,7 @@
 
         </DockPanel>
 
-        <StackPanel Grid.Row="2"  Grid.Column="0"
+        <StackPanel Grid.Row="3"  Grid.Column="0"
                     Width="484"  Height="164"
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Left"

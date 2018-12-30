@@ -822,5 +822,10 @@ namespace SCide.WPF
         {
             this.Close();
         }
+
+        private void ScrollVwr_for_main_content_GotFocus(object sender,RoutedEventArgs e)
+        {
+
+        }
     }
 }
