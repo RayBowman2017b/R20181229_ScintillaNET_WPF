@@ -1,0 +1,45 @@
+﻿
+
+
+echo "# R20181229_ScintillaNET_WPF" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:RayBowman2017b/R20181229_ScintillaNET_WPF.git
+git push -u origin master
+
+
+
+https://stackoverflow.com/questions/18723512/scintillanet-strange-resizing-in-wpf-application
+
+I know this issue is super old but I had the same problem and solved it with a custom panel
+that minimizes the text editor desired size:
+
+public class ScintillaPanel : Panel
+{
+    protected override Size MeasureOverride(Size availableSize)
+    {
+        var children = InternalChildren.OfType<UIElement>();
+        var firstChild = children.FirstOrDefault();
+        if (firstChild != null)
+            firstChild.Measure(new Size(0, 0));
+        return new Size(0, 0);
+    }
+
+    protected override Size ArrangeOverride(Size finalSize)
+    {
+        var children = InternalChildren.OfType<UIElement>();
+        var firstChild = children.FirstOrDefault();
+        if (firstChild != null)
+            firstChild.Arrange(new Rect(0, 0, finalSize.Width, finalSize.Height));
+        return finalSize;
+    }
+}
+
+And then wrap scintilla control like this:
+
+<local:ScintillaPanel>
+    <WindowsFormsHost>
+        <scintilla:Scintilla/>
+    </WindowsFormsHost>
+</local:ScintillaPanel>
