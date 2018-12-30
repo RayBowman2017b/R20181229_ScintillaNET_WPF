@@ -9,6 +9,8 @@ git remote add origin git@github.com:RayBowman2017b/R20181229_ScintillaNET_WPF.g
 git push -u origin master
 
 
+https://github.com/RayBowman2017b/R20181229_ScintillaNET_WPF
+
 
 https://stackoverflow.com/questions/18723512/scintillanet-strange-resizing-in-wpf-application
 

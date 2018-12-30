@@ -3,6 +3,11 @@
 https://stackoverflow.com/questions/18723512/scintillanet-strange-resizing-in-wpf-application
 
 
+support@xceed.com
+
+https://github.com/RayBowman2017b/R20181229_ScintillaNET_WPF
+
+
 ScintillaNET WPF Resizing Problem
 
 Hi All,
